@@ -11,28 +11,36 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id       String    @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  slug     String    @unique
-  title    String
-  body     String
-  comments Comment[]
-  user     User      @relation(fields: [userId], references: [id])
-  userId   String    @db.ObjectId
+model Recipe {
+  id         String    @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  slug       String    @unique
+  title      String
+  body       String
+  comments   Comment[]
+  user       User      @relation(fields: [userId], references: [id])
+  userId     String    @db.ObjectId
+  category   Category  @relation(fields: [categoryId], references: [id])
+  categoryId String    @db.ObjectId
+}
+
+model Category {
+  id      String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  name    String   @unique
+  recipes Recipe[]
 }
 
 // Comments contain a comment string and connect back to the post.
 // postId must have @db.ObjectId to match up with Post's id type
 model Comment {
-  id      String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  post    Post   @relation(fields: [postId], references: [id])
-  postId  String @db.ObjectId
-  comment String
+  id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+  recipeId String @db.ObjectId
+  comment  String
 }
 
 model User {
-  id    String  @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  email String  @unique
-  name  String?
-  posts Post[]
+  id      String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  email   String   @unique
+  name    String?
+  recipes Recipe[]
 }

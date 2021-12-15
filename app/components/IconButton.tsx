@@ -1,15 +1,23 @@
+import cx from "classnames";
 import React from "react";
 
-interface IconButtonProps {
+interface IconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: any;
-  onClick: () => void;
 }
 
-export const IconButton = ({ icon: Icon }: IconButtonProps): JSX.Element => {
+export const IconButton = ({
+  icon: Icon,
+  className,
+  ...rest
+}: IconButtonProps): JSX.Element => {
   return (
     <button
-      aria-label="Home"
-      className="w-8 h-8 bg-white hover:bg-blue-200 font-bold rounded"
+      {...rest}
+      className={cx(
+        "content-center w-10 h-10 items-center bg-slate-700  hover:bg-blue-200 font-bold rounded flex",
+        className
+      )}
     >
       <Icon className="w-4 h-4 mx-auto" />
     </button>

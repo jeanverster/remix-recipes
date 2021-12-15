@@ -1,7 +1,7 @@
 import { Home, Info, Plus } from "react-feather";
+import { NavLink } from "react-router-dom";
 import type { LinksFunction } from "remix";
 import {
-  Link,
   Links,
   LiveReload,
   Meta,
@@ -131,19 +131,19 @@ function Document({
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-1 h-screen pt-14">
+    <div className="flex flex-1 h-screen pt-14 bg-zinc-900 text-white">
       <nav
         aria-label="Main navigation"
-        className="w-full content-center flex h-12 items-center fixed top-0 left-0 z-50 bg-lime-500"
+        className="w-full content-start flex h-14 items-center fixed top-0 left-0 z-50 px-1 bg-cyan-800"
       >
-        <ul className="mx-auto flex">
+        <ul className="flex">
           {NAV_LINKS.map(({ href, label, icon: Icon }) => (
-            <Link key={href} to={href}>
-              <li className="flex items-center px-4 py-1 bg-white hover:bg-slate-300 rounded mx-2">
+            <NavLink key={href} to={href}>
+              <li className="flex items-center px-4 py-1 bg-slate-800 hover:bg-cyan-900 rounded mx-2">
                 <Icon className="w-4 h-4 mr-2" />
                 <span>{label}</span>
               </li>
-            </Link>
+            </NavLink>
           ))}
         </ul>
       </nav>
