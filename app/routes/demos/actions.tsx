@@ -34,7 +34,7 @@ export let action: ActionFunction = async ({ request }) => {
 
 export default function ActionsDemo() {
   // https://remix.run/api/remix#useactiondata
-  let actionMessage = useActionData<string>();
+  let actionMessage = useActionData<string>();0
   let answerRef = useRef<HTMLInputElement>(null);
 
   // This form works without JavaScript, but when we have JavaScript we can make
