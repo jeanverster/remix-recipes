@@ -130,15 +130,15 @@ function Document({
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-1 h-screen pt-14 bg-zinc-900 text-white">
+    <div className="flex flex-1 h-screen bg-zinc-900 text-white">
       <nav
         aria-label="Main navigation"
-        className="w-full content-start flex h-14 items-center fixed top-0 left-0 z-50 px-1 bg-cyan-800"
+        className="h-full content-start flex items-center top-0 left-0 z-50 px-1 bg-cyan-800"
       >
-        <ul className="flex">
+        <ul className="flex flex-col mb-auto pt-4">
           {NAV_LINKS.map(({ href, label, icon: Icon }) => (
             <NavLink key={href} to={href}>
-              <li className="flex items-center px-4 py-1 bg-slate-800 hover:bg-cyan-900 rounded mx-2">
+              <li className="flex items-center px-4 py-1 bg-slate-800 hover:bg-cyan-900 rounded mx-2 mb-2">
                 <Icon className="w-4 h-4 mr-2" />
                 <span>{label}</span>
               </li>

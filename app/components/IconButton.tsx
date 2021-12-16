@@ -15,7 +15,7 @@ export const IconButton = ({
     <button
       {...rest}
       className={cx(
-        "content-center w-10 h-10 items-center bg-slate-700  hover:bg-blue-200 font-bold rounded flex",
+        "content-center w-8 h-8 items-center bg-slate-700  hover:bg-blue-200 font-bold rounded flex",
         className
       )}
     >
