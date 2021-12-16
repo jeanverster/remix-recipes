@@ -3,6 +3,7 @@ import * as React from "react";
 import { Plus } from "react-feather";
 import type { ActionFunction, LoaderFunction } from "remix";
 import { Form, json, Outlet, redirect, useLoaderData } from "remix";
+import slugify from "slugify";
 import { db } from "~/prisma";
 import { IconButton, Input, TopNav } from "../components";
 
@@ -23,6 +24,7 @@ export const action: ActionFunction = async ({ request }) => {
   await db.category.create({
     data: {
       name: body.get("name") as string,
+      slug: slugify(body.get("name") as string).toLowerCase(),
     },
   });
   return redirect(`/recipes`);

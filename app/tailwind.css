@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.2 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.6 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -423,11 +423,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-*, ::before, ::after {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-
 h1 {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -441,6 +436,11 @@ h2 {
 h3 {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+*, ::before, ::after {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 .top-0 {
@@ -549,8 +549,16 @@ h3 {
   align-content: flex-start;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -636,6 +644,10 @@ h3 {
 
 .font-bold {
   font-weight: 700;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .text-white {
