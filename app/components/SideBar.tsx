@@ -1,27 +1,34 @@
 import { Category } from "@prisma/client";
+import classNames from "classnames";
 import React from "react";
 import { Plus } from "react-feather";
+import { NavLink } from "react-router-dom";
 import { Form } from "remix";
 import { IconButton, Input } from ".";
 
 interface SideBarProps {
   categories: Category[];
+  action: string;
 }
 
-export const SideBar = (props: SideBarProps): JSX.Element => {
+export const SideBar = ({ categories }: SideBarProps): JSX.Element => {
   return (
     <aside className="flex bg-slate-800 p-4 flex-col">
       <ul className="flex flex-col">
-        {props.categories.map((category) => (
-          <li
-            key={category.id}
-            className="flex items-center px-4 py-1 bg-white hover:bg-slate-300 rounded"
-          >
-            <span className="w-4 h-4 mr-2" />
-            <span>{category.name}</span>
-          </li>
+        {categories.map((category, i) => (
+          <NavLink to={category.id}>
+            <li
+              key={category.id}
+              className={classNames(
+                "flex items-center px-4 py-2 bg-white hover:bg-slate-300 hover:cursor-pointer rounded",
+                i < categories.length - 1 && "mb-4"
+              )}
+            >
+              <span className="text-black">{category.name}</span>
+            </li>
+          </NavLink>
         ))}
-        {props.categories.length === 0 && (
+        {categories.length === 0 && (
           <li className="flex items-center py-1">
             <span className="text-white">No categories yet...</span>
           </li>

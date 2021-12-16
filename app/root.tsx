@@ -1,4 +1,4 @@
-import { Home, Info, Plus } from "react-feather";
+import { Clipboard, Home } from "react-feather";
 import { NavLink } from "react-router-dom";
 import type { LinksFunction } from "remix";
 import {
@@ -10,11 +10,15 @@ import {
   ScrollRestoration,
   useCatch,
 } from "remix";
+import globalStyles from "./styles/global.css";
 import styles from "./tailwind.css";
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styles }];
+  return [
+    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: globalStyles },
+  ];
 };
 
 const NAV_LINKS = [
@@ -24,14 +28,9 @@ const NAV_LINKS = [
     icon: Home,
   },
   {
-    href: "/new-recipe",
-    label: "New Recipe",
-    icon: Plus,
-  },
-  {
-    href: "/info",
-    label: "Info",
-    icon: Info,
+    href: "/recipes",
+    label: "Recipes",
+    icon: Clipboard,
   },
 ];
 
