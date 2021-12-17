@@ -12,9 +12,8 @@ export const TopNav = ({ categories }: TopNavProps): JSX.Element => {
     <nav className="flex border-b w-full border-gray-600/50 flex-col mt-4">
       <ul className="flex">
         {categories.map((category, i) => (
-          <NavLink to={category.slug}>
+          <NavLink key={category.slug} to={category.slug}>
             <li
-              key={category.slug}
               className={classNames(
                 "flex items-center content-center px-4 pt-2 pb-3 text-center hover:text-slate-300 hover:cursor-pointer rounded"
               )}

@@ -25,7 +25,6 @@ export const action: ActionFunction = async ({ request, params }) => {
 
 const NewRecipe = (props: NewRecipeProps): JSX.Element => {
   const params = useParams();
-  console.log("params", params);
   return (
     <div className="flex flex-col px-4 w-full">
       <h3 className="font-bold mb-4">New Recipe</h3>
