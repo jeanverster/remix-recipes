@@ -2,8 +2,8 @@ import { Category, Recipe } from "@prisma/client";
 import * as React from "react";
 import type { LoaderFunction } from "remix";
 import { json, Link, Outlet, useLoaderData } from "remix";
+import { Button, RecipeItem } from "~/components";
 import { db } from "~/prisma";
-import { Button, RecipeItem } from "../../components";
 
 interface CategoryProps {}
 

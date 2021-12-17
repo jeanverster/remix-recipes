@@ -4,8 +4,8 @@ import { Plus } from "react-feather";
 import type { ActionFunction, LoaderFunction } from "remix";
 import { Form, json, Outlet, redirect, useLoaderData } from "remix";
 import slugify from "slugify";
+import { IconButton, Input, TopNav } from "~/components";
 import { db } from "~/prisma";
-import { IconButton, Input, TopNav } from "../components";
 
 interface RecipesProps {}
 
@@ -19,7 +19,7 @@ export let loader: LoaderFunction = async () => {
 };
 
 export const action: ActionFunction = async ({ request }) => {
-  const body = new URLSearchParams(await request.text());
+  const body = await request.formData();
   await db.category.create({
     data: {
       name: body.get("name") as string,

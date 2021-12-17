@@ -1,13 +1,13 @@
 import * as React from "react";
 import { ActionFunction, Form, redirect, useParams } from "remix";
 import slugify from "slugify";
+import { Button, Input, TextArea } from "~/components";
 import { db } from "~/prisma";
-import { Button, Input, TextArea } from "../../../components";
 
 interface NewRecipeProps {}
 
 export const action: ActionFunction = async ({ request, params }) => {
-  const body = new URLSearchParams(await request.text());
+  const body = await request.formData();
   await db.recipe.create({
     data: {
       title: body.get("title") as string,
