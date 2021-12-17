@@ -18,6 +18,12 @@ export let links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: styles },
     { rel: "stylesheet", href: globalStyles },
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap",
+    },
   ];
 };
 
@@ -130,15 +136,15 @@ function Document({
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-1 h-screen bg-zinc-900 text-white">
+    <div className="flex flex-1 h-screen bg-gray-900 text-white">
       <nav
         aria-label="Main navigation"
-        className="h-full content-start flex items-center top-0 left-0 z-50 px-1 bg-cyan-800"
+        className="h-full content-start flex items-center top-0 left-0 z-50 bg-gray-800 w-48"
       >
-        <ul className="flex flex-col mb-auto pt-4">
+        <ul className="flex flex-col mb-auto w-full">
           {NAV_LINKS.map(({ href, label, icon: Icon }) => (
             <NavLink key={href} to={href}>
-              <li className="flex items-center px-4 py-1 bg-slate-800 hover:bg-cyan-900 rounded mx-2 mb-2">
+              <li className="flex items-center p-4 hover:bg-cyan-900 w-full">
                 <Icon className="w-4 h-4 mr-2" />
                 <span>{label}</span>
               </li>

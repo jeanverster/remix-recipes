@@ -16,4 +16,5 @@
 
 a.active {
   @apply text-cyan-500;
+  @apply border-b;
 }

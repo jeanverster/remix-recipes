@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 
 interface TopNavProps {
   categories: Category[];
-  action: string;
 }
 
 export const TopNav = ({ categories }: TopNavProps): JSX.Element => {
@@ -17,7 +16,7 @@ export const TopNav = ({ categories }: TopNavProps): JSX.Element => {
             <li
               key={category.slug}
               className={classNames(
-                "flex items-center mr-4 pt-2 pb-3 hover:text-slate-300 text-white hover:cursor-pointer rounded"
+                "flex items-center content-center px-4 pt-2 pb-3 text-center hover:text-slate-300 hover:cursor-pointer rounded"
               )}
             >
               <span>{category.name}</span>

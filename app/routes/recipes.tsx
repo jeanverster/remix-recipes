@@ -44,9 +44,7 @@ const Recipes = (props: RecipesProps): JSX.Element => {
             </div>
           </Form>
         </div>
-        <nav>
-          <TopNav action="/recipes" categories={categories} />
-        </nav>
+        <TopNav categories={categories} />
         <Outlet />
       </main>
     </div>

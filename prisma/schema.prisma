@@ -17,31 +17,20 @@ model Recipe {
   title      String
   body       String
   comments   Comment[]
-  user       User      @relation(fields: [userId], references: [id])
-  userId     String    @db.ObjectId
   category   Category  @relation(fields: [categoryId], references: [id])
   categoryId String    @db.ObjectId
 }
 
 model Category {
   id      String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  name    String 
+  name    String
   slug    String   @unique
   recipes Recipe[]
 }
 
-// Comments contain a comment string and connect back to the post.
-// postId must have @db.ObjectId to match up with Post's id type
 model Comment {
   id       String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   recipe   Recipe @relation(fields: [recipeId], references: [id])
   recipeId String @db.ObjectId
   comment  String
-}
-
-model User {
-  id      String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  email   String   @unique
-  name    String?
-  recipes Recipe[]
 }
