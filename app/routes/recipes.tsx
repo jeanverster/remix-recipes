@@ -14,7 +14,6 @@ export let loader: LoaderFunction = async () => {
     const allCategories = await db.category.findMany();
     return json(allCategories);
   } catch (error) {
-    console.log("error", error);
     return json([]);
   }
 };
