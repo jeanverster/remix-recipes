@@ -21,7 +21,7 @@ const Recipe = (props: RecipeProps): JSX.Element => {
     <div className="flex flex-1 flex-col items-start p-4">
       <h2 className="font-bold">{recipe?.title}</h2>
       <div className="pt-4">
-        <p style="white-space: pre-line">{recipe?.body}</p>
+        <p className="whitespace-pre-line">{recipe?.body}</p>
       </div>
     </div>
   );

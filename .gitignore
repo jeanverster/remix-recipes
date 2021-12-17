@@ -9,4 +9,4 @@ api/build
 
 .env
 
-/app/tailwind.css
+./app/tailwind.css
