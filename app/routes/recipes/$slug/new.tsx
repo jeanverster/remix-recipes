@@ -54,3 +54,19 @@ const NewRecipe = (props: NewRecipeProps): JSX.Element => {
 };
 
 export default NewRecipe;
+
+// https://remix.run/docs/en/v1/api/conventions#errorboundary
+export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
+  return (
+    <div className="flex flex-col text-center w-full p-8">
+      <h1 className="font-bold mb-4">There was an error</h1>
+      <p className="font-bold text-red-400">{error.message}</p>
+      <hr className="my-4" />
+      <p>
+        Hey, developer, you should replace this with what you want your users to
+        see.
+      </p>
+    </div>
+  );
+}

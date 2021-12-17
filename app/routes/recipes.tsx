@@ -56,10 +56,10 @@ export default Recipes;
 export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);
   return (
-    <div>
-      <h1>There was an error</h1>
-      <p>{error.message}</p>
-      <hr />
+    <div className="flex flex-col text-center w-full p-8">
+      <h1 className="font-bold mb-4">There was an error</h1>
+      <p className="font-bold text-red-400">{error.message}</p>
+      <hr className="my-4" />
       <p>
         Hey, developer, you should replace this with what you want your users to
         see.
