@@ -39,7 +39,6 @@ export const action: ActionFunction = async ({ request }) => {
 
 const Recipes = (props: RecipesProps): JSX.Element => {
   const categories = useLoaderData<Category[]>();
-  console.log("categories", categories);
   return (
     <div className="flex flex-1">
       <main className="flex flex-1 p-4 flex-col">

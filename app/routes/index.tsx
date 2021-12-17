@@ -13,7 +13,6 @@ export let loader: LoaderFunction = async () => {
 };
 
 export const action: ActionFunction = async (data) => {
-  console.log("constaction:ActionFunction= ~ data", data);
   // const category = await db.category.create({
   //   data: {
   //     name: data.request.body?.,
