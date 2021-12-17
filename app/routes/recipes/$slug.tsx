@@ -30,7 +30,7 @@ const Category = (props: CategoryProps): JSX.Element => {
           </div>
         )}
         {recipes?.map((recipe) => (
-          <RecipeItem recipe={recipe} />
+          <RecipeItem key={recipe.id} recipe={recipe} />
         ))}
         <Link to="new">
           <Button className="mt-4">New Recipe +</Button>

@@ -3,8 +3,14 @@ import classNames from "classnames";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+interface CategoryWithCount extends Category {
+  _count: {
+    [key: string]: number;
+  };
+}
+
 interface TopNavProps {
-  categories: Category[];
+  categories: CategoryWithCount[];
 }
 
 export const TopNav = ({ categories }: TopNavProps): JSX.Element => {
@@ -19,6 +25,9 @@ export const TopNav = ({ categories }: TopNavProps): JSX.Element => {
               )}
             >
               <span>{category.name}</span>
+              <span className="font-bold ml-2">
+                ({category._count?.recipes})
+              </span>
             </li>
           </NavLink>
         ))}

@@ -11,7 +11,15 @@ interface RecipesProps {}
 
 export let loader: LoaderFunction = async () => {
   try {
-    const allCategories = await db.category.findMany();
+    const allCategories = await db.category.findMany({
+      include: {
+        _count: {
+          select: {
+            recipes: true,
+          },
+        },
+      },
+    });
     return json(allCategories);
   } catch (error) {
     return json([]);
@@ -31,6 +39,7 @@ export const action: ActionFunction = async ({ request }) => {
 
 const Recipes = (props: RecipesProps): JSX.Element => {
   const categories = useLoaderData<Category[]>();
+  console.log("categories", categories);
   return (
     <div className="flex flex-1">
       <main className="flex flex-1 p-4 flex-col">
